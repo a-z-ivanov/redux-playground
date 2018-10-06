@@ -9,4 +9,5 @@ entry: './v1/main.js'
 
 ## Run
 npm run build
+
 node index.js
