@@ -81,34 +81,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./main.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./v1/main.js");
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./actions/board.js":
-/*!**************************!*\
-  !*** ./actions/board.js ***!
-  \**************************/
-/*! exports provided: addLetter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addLetter\", function() { return addLetter; });\nconst addLetter = (x, y, letter) => {\r\n    return {\r\n        type: 'ADD_LETTER',\r\n        x,\r\n        y,\r\n        letter\r\n    }\r\n}\r\n\r\n\n\n//# sourceURL=webpack:///./actions/board.js?");
-
-/***/ }),
-
-/***/ "./main.js":
-/*!*****************!*\
-  !*** ./main.js ***!
-  \*****************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducers/game */ \"./reducers/game.js\");\n/* harmony import */ var _actions_board__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions/board */ \"./actions/board.js\");\n\r\n\r\n\r\n\r\nconst store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers_game__WEBPACK_IMPORTED_MODULE_1__[\"game\"]);\r\n\r\nstore.dispatch(Object(_actions_board__WEBPACK_IMPORTED_MODULE_2__[\"addLetter\"])(0, 0, 'd'));\r\nstore.dispatch(Object(_actions_board__WEBPACK_IMPORTED_MODULE_2__[\"addLetter\"])(0, 1, 'i'));\r\nstore.dispatch(Object(_actions_board__WEBPACK_IMPORTED_MODULE_2__[\"addLetter\"])(0, 2, 'e'));\r\n\r\nconsole.log(store.getState());\n\n//# sourceURL=webpack:///./main.js?");
-
-/***/ }),
 
 /***/ "./node_modules/redux/es/redux.js":
 /*!****************************************!*\
@@ -168,15 +144,39 @@ eval("module.exports = function(originalModule) {\n\tif (!originalModule.webpack
 
 /***/ }),
 
-/***/ "./reducers/game.js":
-/*!**************************!*\
-  !*** ./reducers/game.js ***!
-  \**************************/
+/***/ "./v1/actions/board.js":
+/*!*****************************!*\
+  !*** ./v1/actions/board.js ***!
+  \*****************************/
+/*! exports provided: addLetter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addLetter\", function() { return addLetter; });\nconst addLetter = (x, y, letter) => {\r\n    return {\r\n        type: 'ADD_LETTER',\r\n        x,\r\n        y,\r\n        letter\r\n    }\r\n}\r\n\r\n\n\n//# sourceURL=webpack:///./v1/actions/board.js?");
+
+/***/ }),
+
+/***/ "./v1/main.js":
+/*!********************!*\
+  !*** ./v1/main.js ***!
+  \********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _reducers_game__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reducers/game */ \"./v1/reducers/game.js\");\n/* harmony import */ var _actions_board__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions/board */ \"./v1/actions/board.js\");\n\r\n\r\n\r\n\r\nconst store = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"createStore\"])(_reducers_game__WEBPACK_IMPORTED_MODULE_1__[\"game\"]);\r\n\r\nstore.dispatch(Object(_actions_board__WEBPACK_IMPORTED_MODULE_2__[\"addLetter\"])(0, 0, 'd'));\r\nstore.dispatch(Object(_actions_board__WEBPACK_IMPORTED_MODULE_2__[\"addLetter\"])(0, 1, 'i'));\r\nstore.dispatch(Object(_actions_board__WEBPACK_IMPORTED_MODULE_2__[\"addLetter\"])(0, 2, 'e'));\r\n\r\nconsole.log(store.getState());\n\n//# sourceURL=webpack:///./v1/main.js?");
+
+/***/ }),
+
+/***/ "./v1/reducers/game.js":
+/*!*****************************!*\
+  !*** ./v1/reducers/game.js ***!
+  \*****************************/
 /*! exports provided: game */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"game\", function() { return game; });\nconst initialState = {\r\n    board: [\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']\r\n    ]\r\n  }\r\n\r\nconst game = (state = initialState, action) => {\r\n    switch (action.type) {\r\n        case 'ADD_LETTER': {\r\n            console.log(`Adding Letter ${action.letter} to [${action.x},${action.y}]`);\r\n            return {\r\n                ...state,\r\n                board: state.board.map((value, index) => {\r\n                    if (index === action.x) {\r\n                        return state.board[action.x].map((value, index) => {\r\n                            if (index === action.y) {\r\n                                return action.letter;\r\n                            } else {\r\n                                return value;\r\n                            }\r\n                        });\r\n                    } else {\r\n                        return value;\r\n                    }\r\n                })\r\n            }\r\n        }\r\n        default:\r\n            return state;\r\n    }\r\n};\r\n\r\n\n\n//# sourceURL=webpack:///./reducers/game.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"game\", function() { return game; });\nconst initialState = {\r\n    board: [\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],\r\n        [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']\r\n    ]\r\n  }\r\n\r\nconst game = (state = initialState, action) => {\r\n    switch (action.type) {\r\n        case 'ADD_LETTER': {\r\n            console.log(`Adding Letter ${action.letter} to [${action.x},${action.y}]`);\r\n            return {\r\n                ...state,\r\n                board: state.board.map((value, index) => {\r\n                    if (index === action.x) {\r\n                        return state.board[action.x].map((value, index) => {\r\n                            if (index === action.y) {\r\n                                return action.letter;\r\n                            } else {\r\n                                return value;\r\n                            }\r\n                        });\r\n                    } else {\r\n                        return value;\r\n                    }\r\n                })\r\n            }\r\n        }\r\n        default:\r\n            return state;\r\n    }\r\n};\r\n\r\n\n\n//# sourceURL=webpack:///./v1/reducers/game.js?");
 
 /***/ })
 
