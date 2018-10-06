@@ -1,0 +1,28 @@
+{
+  "name": "redux-playground",
+  "version": "1.0.0",
+  "description": "Playground project for redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-z-ivanov/redux-playground.git"
+  },
+  "keywords": [
+    "redux"
+  ],
+  "author": "Alexander Ivanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/a-z-ivanov/redux-playground/issues"
+  },
+  "homepage": "https://github.com/a-z-ivanov/redux-playground#readme",
+  "devDependencies": {
+    "redux": "^4.0.0",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
