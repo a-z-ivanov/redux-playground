@@ -1,9 +1,24 @@
 <html>
 	<head>
+		<style>
+			.board {
+				display: grid;
+				grid-template-rows: repeat(10, 3rem);
+				grid-template-columns: repeat(10, 3rem);
+			}
+
+			.cell {
+				margin: 0 0 1px 1px;
+				border: 1px solid black;
+				line-height: 3rem;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="app"></div>
 
 		<script src="index.js"></script>
+
 	</body>
 </html>
