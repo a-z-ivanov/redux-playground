@@ -13,6 +13,15 @@ const boardInitialState = [
     [' ',' ',' ',' ',' ',' ',' ',' ',' ',' ']
 ];
 
+const playersInitialState = [
+	{
+		selectedLetter: 'b'
+	},
+	{
+		selectedLetter: 'g'
+	}
+];
+
 const board = (state = boardInitialState, action) => {
     switch (action.type) {
         case "ADD_LETTER":
@@ -60,9 +69,28 @@ const board = (state = boardInitialState, action) => {
         default:
             return state;
     }
-}
+};
+
+const players = (state = playersInitialState, action) => {
+	switch (action.type) {
+		case "REMOVE_SELECTED_LETTER":			
+			return state.map((value, index) => {
+				if (index === action.playerId) {
+					return {
+						...value,
+						selectedLetter: ''
+					};
+				} else {
+					return value;
+				}
+			});
+		default:
+			return state;
+	}
+};
 
 const game = combineReducers({
+	players,
     board
 });
 
