@@ -20,7 +20,7 @@ setTimeout(function() {
     store.dispatch(addLetter(0, 0, 'h'));
     store.dispatch(addLetter(0, 1, 'i'));
     store.dispatch(addLetter(0, 2, 'd'));
-    store.dispatch(addLetter(0, 3, 'i'));
+    store.dispatch(addLetter(0, 3, 'e'));
 
     store.dispatch(removeLetter(0, 2));
     store.dispatch(addLetter(0, 2, 'h'));
