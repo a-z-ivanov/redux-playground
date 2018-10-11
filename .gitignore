@@ -61,4 +61,5 @@ typings/
 .next
 
 # webpack build outpu
-index.js
+public/*.js
+public/*.js.map

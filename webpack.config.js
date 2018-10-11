@@ -1,23 +1,25 @@
 const path = require('path');
 
-module.exports = {
-	target: 'web',
-	mode: 'development',
-	entry: './v5/main.js',
-	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				loader: "babel-loader"
-			}
-		]
-	},
-	output: {
-		filename: 'index.js',
-		path: path.resolve(__dirname, './public')
-	},
-	devServer: {
-		contentBase: path.join(__dirname, "/public")
-	}
+module.exports = (env) => {
+	return {
+		mode: env || 'development',
+		entry: './v5/main.js',
+		output: {
+			filename: 'index.js',
+			path: path.resolve(__dirname, './public')
+		},
+		module: {
+			rules: [
+				{
+					test: /\.js$/,
+					exclude: /node_modules/,
+					loader: "babel-loader"
+				}
+			]
+		},
+		devtool: env === 'production' ? 'source-map' : 'inline-source-maps',	
+		devServer: {
+			contentBase: path.join(__dirname, "public")
+		}
+	};
 };

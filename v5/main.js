@@ -17,13 +17,12 @@ ReactDom.render(
 )
 
 setTimeout(function() {
-    store.dispatch(addLetter(0, 0, 'd'));
+    store.dispatch(addLetter(0, 0, 'h'));
     store.dispatch(addLetter(0, 1, 'i'));
-    store.dispatch(addLetter(0, 2, 'c'));
-    store.dispatch(addLetter(0, 3, 'e'));
+    store.dispatch(addLetter(0, 2, 'd'));
+    store.dispatch(addLetter(0, 3, 'i'));
 
     store.dispatch(removeLetter(0, 2));
-    store.dispatch(removeLetter(0, 3));
-    store.dispatch(addLetter(0, 2, 'e'));
+    store.dispatch(addLetter(0, 2, 'h'));
 }, 10000);
 
