@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = (env) => {
 	return {
 		mode: env || 'development',
-		entry: './v5/main.js',
+		entry: './v6/main.js',
 		output: {
 			filename: 'index.js',
 			path: path.resolve(__dirname, './public')
@@ -19,7 +19,8 @@ module.exports = (env) => {
 		},
 		devtool: env === 'production' ? 'source-map' : 'inline-source-maps',	
 		devServer: {
-			contentBase: path.join(__dirname, "public")
+			contentBase: path.join(__dirname, "public"),
+			historyApiFallback: true
 		}
 	};
 };
