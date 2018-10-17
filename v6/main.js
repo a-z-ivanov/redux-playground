@@ -8,31 +8,42 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux'
 import { firebase } from '../firebase/firebase';
-import AppRouter from './routers/AppRouter';
+import AppRouter, { history } from './routers/AppRouter';
 
 const store = createStore(game, applyMiddleware(thunkMiddleware));
+const jsx = <Provider store={store}>
+    <AppRouter />
+</Provider>;
 
-ReactDom.render(
-    <Provider store={store}>
-        <AppRouter />
-    </Provider>,
-    document.getElementById('app')
-);
+let hasRendered = false;
+const renderApp = () => {
+    if (!hasRendered) {
+        ReactDom.render(jsx, document.getElementById('app'));
+        hasRendered = true;
+    }
+}
 
-setTimeout(function() {
-    store.dispatch(addLetter(0, 0, 'h'));
-    store.dispatch(addLetter(0, 1, 'i'));
-    store.dispatch(addLetter(0, 2, 'd'));
-    store.dispatch(addLetter(0, 3, 'e'));
-
-    store.dispatch(removeLetter(0, 2));
-    store.dispatch(addLetter(0, 2, 'h'));
-}, 10000);
+ReactDom.render(<p>Loading...</p>,document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-        console.log('log in');
-    } else {
-        console.log('log out');
+    if (user) { //login
+        setTimeout(function() {
+            store.dispatch(addLetter(0, 0, 'h'));
+            store.dispatch(addLetter(0, 1, 'i'));
+            store.dispatch(addLetter(0, 2, 'd'));
+            store.dispatch(addLetter(0, 3, 'e'));
+            
+            store.dispatch(removeLetter(0, 2));
+            store.dispatch(addLetter(0, 2, 'h'));
+
+            renderApp();
+
+            if (history.location.pathname === '/') {
+                history.push('/board');
+            }
+        }, 10000);
+    } else { //logout
+        renderApp();
+        history.push('/');
     }
-})
+});
