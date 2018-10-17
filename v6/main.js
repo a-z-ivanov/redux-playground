@@ -8,18 +8,13 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Provider } from 'react-redux'
 import { firebase } from '../firebase/firebase';
-import { BrowserRouter, Route } from 'react-router-dom';
+import AppRouter from './routers/AppRouter';
 
 const store = createStore(game, applyMiddleware(thunkMiddleware));
 
 ReactDom.render(
     <Provider store={store}>
-        <BrowserRouter>
-            <div>
-                <Route path='/' component={Login} exact={true}/>
-                <Route path='/board' component={Board}/>
-            </div>
-        </BrowserRouter>
+        <AppRouter />
     </Provider>,
     document.getElementById('app')
 );
