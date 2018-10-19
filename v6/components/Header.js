@@ -8,7 +8,7 @@ const Header = ({ logout }) => (
     <h1>Scrabble</h1>
     <NavLink to="/" exact={true}>Login</NavLink>
     <NavLink to="/board" >Board</NavLink>
-    <div onClick={() => logout()}>Logout</div>
+    <button onClick={() => logout()}>Logout</button>
   </header>
 );
 

@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import authReducer from './auth';
 
 const boardInitialState = [
     [' ',' ',' ',' ',' ',' ',' ',' ',' ',' '],
@@ -91,7 +92,8 @@ const players = (state = playersInitialState, action) => {
 
 const game = combineReducers({
 	players,
-    board
+    board,
+    auth: authReducer
 });
 
 export { game };

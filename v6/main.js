@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { game } from './reducers/game';
 import { addLetter, removeLetter } from './actions/board';
+import { login, logout } from './actions/auth';
 import Board from './components/Board';
 import Login from './components/Login';
 import React from 'react';
@@ -27,6 +28,7 @@ ReactDom.render(<p>Loading...</p>,document.getElementById('app'));
 
 firebase.auth().onAuthStateChanged((user) => {
     if (user) { //login
+        store.dispatch(login(user.uid));
         setTimeout(function() {
             store.dispatch(addLetter(0, 0, 'h'));
             store.dispatch(addLetter(0, 1, 'i'));
@@ -43,6 +45,7 @@ firebase.auth().onAuthStateChanged((user) => {
             }
         }, 10000);
     } else { //logout
+        store.dispatch(logout());
         renderApp();
         history.push('/');
     }
